@@ -78,13 +78,13 @@
                 </table>
 
                 <a
-                    href="/si-akademik/public/dashboard"
+                    href="/si-akademik-1/public/dashboard"
                     class="btn btn-secondary">
                     Kembali ke Dashboard
                 </a>
 
                 <a
-                    href="/si-akademik/public/dosen"
+                    href="/si-akademik-1/public/dosen"
                     class="btn btn-success">
                     Daftar Dosen
                 </a>

@@ -64,7 +64,7 @@ class DosenController
         $model = new Dosen($pdo);
         $model->update($id, $data);
 
-        header('Location: /si-akademik/public/dosen');
+        header('Location: /si-akademik-1/public/dosen');
         exit;
     }
 

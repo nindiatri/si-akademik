@@ -18,7 +18,7 @@
     <!-- CSS Custom -->
     <link
         rel="stylesheet"
-        href="/si-akademik/public/css/style.css"
+        href="/si-akademik-1/public/css/style.css"
     >
 
 </head>
@@ -55,7 +55,7 @@
 
                     <form
                         method="POST"
-                        action="/si-akademik/public/login/process"
+                        action="/si-akademik-1/public/login/process"
                     >
 
                         <div class="mb-3">

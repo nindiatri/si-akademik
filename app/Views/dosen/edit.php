@@ -27,7 +27,7 @@
                     Edit Data Dosen
                 </h2>
 
-                <form action="/si-akademik/public/dosen/update" method="POST">
+                <form action="/si-akademik-1/public/dosen/update" method="POST">
 
                     <input
                         type="hidden"

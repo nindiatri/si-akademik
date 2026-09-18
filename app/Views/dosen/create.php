@@ -75,7 +75,7 @@
                     </button>
 
                     <a
-                        href="/si-akademik/public/dosen"
+                        href="/si-akademik-1/public/dosen"
                         class="btn btn-secondary">
                         Kembali
                     </a>

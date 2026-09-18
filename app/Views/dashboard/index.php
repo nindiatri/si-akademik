@@ -65,7 +65,7 @@
 
 
                     <a
-                        href="/si-akademik/public/logout"
+                        href="/si-akademik-1/public/logout"
                         class="btn btn-danger"
                     >
                         Logout

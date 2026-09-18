@@ -32,7 +32,7 @@ class AuthController
             $_SESSION['login'] = true;
             $_SESSION['username'] = 'admin';
 
-            header('Location: /si-akademik/public/dashboard');
+            header('Location: /si-akademik-1/public/dashboard');
             exit;
 
         } else {

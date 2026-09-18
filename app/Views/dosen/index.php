@@ -27,7 +27,7 @@
                 </h2>
 
                 <a
-                    href="/si-akademik/public/dosen/create"
+                    href="/si-akademik-1/public/dosen/create"
                     class="btn btn-primary mb-3">
                     Tambah Dosen
                 </a>

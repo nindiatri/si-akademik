@@ -54,7 +54,7 @@
                 </table>
 
                 <a
-                    href="/si-akademik/public/mahasiswa"
+                    href="/si-akademik-1/public/mahasiswa"
                     class="btn btn-secondary">
                     Kembali
                 </a>
