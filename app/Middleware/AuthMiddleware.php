@@ -7,7 +7,7 @@ class AuthMiddleware
         // Cek apakah user sudah login
         if (!isset($_SESSION['login']) || $_SESSION['login'] !== true) {
 
-            header('Location: /si-akademik/public/login');
+            header('Location: /si-akademik-1/public/login');
             exit;
         }
     }
