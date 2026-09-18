@@ -15,5 +15,6 @@ return [
         '/login/process'    => ['AuthController', 'processLogin'],
         '/dosen'            => ['DosenController', 'index'],
         '/dosen/create'     => ['DosenController', 'create'],
+        '/dosen/detail'     => ['DosenController', 'detail'],
     ]
 ];

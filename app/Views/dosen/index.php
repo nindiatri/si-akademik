@@ -4,11 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Daftar Dosen - Sistem Akademik</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
 
-    <!-- CSS -->
     <link
         rel="stylesheet"
         href="/si-akademik/public/css/style.css"
@@ -17,81 +20,95 @@
 
 <body>
 
-    <h1 class="text-center mb-4">
-        Politeknik Negeri Jember
-    </h1>
+    <div class="container-fluid">
 
-    <div class="card shadow">
+        <h1 class="text-center mb-4">
+            Politeknik Negeri Jember
+        </h1>
 
-        <div class="card-body">
+        <div class="card shadow">
 
-            <h2 class="card-title mb-4">
-                Data Dosen
-            </h2>
+            <div class="card-body">
 
-            <table class="table table-bordered table-striped">
+                <h2 class="card-title mb-4">
+                    Data Dosen
+                </h2>
 
-                <thead class="table-dark">
+                <table class="table table-bordered table-striped">
 
-                    <tr>
-                        <th width="100">No</th>
-                        <th>NIDN</th>
-                        <th>Nama</th>
-                    </tr>
-
-                </thead>
-
-                <tbody>
-
-                    <?php $no = 1; ?>
-
-                    <?php foreach ($dosen as $dsn): ?>
+                    <thead class="table-dark">
 
                         <tr>
-
-                            <td>
-                                <?= $no++; ?>
-                            </td>
-
-                            <td>
-                                <?= htmlspecialchars($dsn['nidn']); ?>
-                            </td>
-
-                            <td>
-                                <?= htmlspecialchars($dsn['nama']); ?>
-                            </td>
-
+                            <th width="100">No</th>
+                            <th>NIDN</th>
+                            <th>Nama</th>
+                            <th width="150">Aksi</th>
                         </tr>
 
-                    <?php endforeach; ?>
+                    </thead>
 
-                </tbody>
+                    <tbody>
 
-            </table>
+                        <?php $no = 1; ?>
 
-            <div class="mt-3">
+                        <?php foreach ($dosen as $dsn): ?>
 
-                <a
-                    href="/si-akademik/public/mahasiswa"
-                    class="btn btn-secondary"
-                >
-                    Data Mahasiswa
-                </a>
+                            <tr>
 
-                <a
-                    href="/si-akademik/public/dashboard"
-                    class="btn btn-primary"
-                >
-                    Kembali ke Dashboard
-                </a>
+                                <td>
+                                    <?= $no++; ?>
+                                </td>
+
+                                <td>
+                                    <?= htmlspecialchars($dsn['nidn']); ?>
+                                </td>
+
+                                <td>
+                                    <?= htmlspecialchars($dsn['nama']); ?>
+                                </td>
+
+                                <td>
+
+                                    <a
+                                        href="/si-akademik/public/dosen/detail?nidn=<?= urlencode($dsn['nidn']); ?>"
+                                        class="btn btn-primary btn-sm"
+                                    >
+                                        Detail
+                                    </a>
+
+                                </td>
+
+                            </tr>
+
+                        <?php endforeach; ?>
+
+                    </tbody>
+
+                </table>
+
+                <div class="mt-3">
+
+                    <a
+                        href="/si-akademik/public/mahasiswa"
+                        class="btn btn-secondary"
+                    >
+                        Data Mahasiswa
+                    </a>
+
+                    <a
+                        href="/si-akademik/public/dashboard"
+                        class="btn btn-primary"
+                    >
+                        Kembali ke Dashboard
+                    </a>
+
+                </div>
 
             </div>
 
         </div>
 
     </div>
-
-</div>
 
 </body>
 
