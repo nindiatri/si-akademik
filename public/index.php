@@ -19,7 +19,7 @@ $routes = require __DIR__ . '/../routes/web.php';
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 // Base URL project
-$basePath = '/si-akademik/public';
+$basePath = '/si-akademik-1/public';
 
 // Hilangkan base path
 if (strpos($uri, $basePath) === 0) {
