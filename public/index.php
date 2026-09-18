@@ -2,10 +2,15 @@
 
 session_start();
 
+require_once __DIR__ . '/../app/Middleware/AuthMiddleware.php';
+
 // Load Controllers
 require_once __DIR__ . '/../app/Controllers/AuthController.php';
 require_once __DIR__ . '/../app/Controllers/MahasiswaController.php';
 require_once __DIR__ . '/../app/Controllers/DosenController.php';
+
+// Load Middleware
+require_once __DIR__ . '/../app/Middleware/AuthMiddleware.php';
 
 // Load routes
 $routes = require __DIR__ . '/../routes/web.php';
@@ -36,6 +41,15 @@ $requestMethod = $_SERVER['REQUEST_METHOD'];
 if (isset($routes[$requestMethod][$uri])) {
 
     [$controller, $method] = $routes[$requestMethod][$uri];
+
+    // Proteksi halaman yang membutuhkan login
+    if (
+        $uri === '/dashboard' ||
+        strpos($uri, '/mahasiswa') === 0 ||
+        strpos($uri, '/dosen') === 0
+    ) {
+        AuthMiddleware::handle();
+    }
 
     $controllerInstance = new $controller();
 

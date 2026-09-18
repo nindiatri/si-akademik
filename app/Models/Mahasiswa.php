@@ -1,53 +1,44 @@
-<?php
+\<?php
+
+require_once __DIR__ . '/../../config/database.php';
+
 class Mahasiswa
 {
+    private $pdo;
+
+    public function __construct()
+    {
+        global $pdo;
+        $this->pdo = $pdo;
+    }
+
     public function getAll()
     {
-        return [
-            [
-                'nim' => '23001',
-                'nama' => 'Nindi',
-                'prodi' => 'Teknik Informatika'
-            ],
-            [
-                'nim' => '23002',
-                'nama' => 'Azira',
-                'prodi' => 'Teknik Informatika'
-            ],
-            [
-                'nim' => '23003',
-                'nama' => 'Aulia',
-                'prodi' => 'Teknik Informatika'
-            ],
-            [
-                'nim' => '23004',
-                'nama' => 'Fauzi',
-                'prodi' => 'Teknik Informatika'
-            ],
-            [
-                'nim' => '23005',
-                'nama' => 'Faul',
-                'prodi' => 'Teknik Informatika'
-            ],  
-            [
-                'nim' => '23006',
-                'nama' => 'Aril',
-                'prodi' => 'Teknik Informatika'
-            ],  
-        ];
+        $sql = "SELECT mahasiswa.*, dosen.nama AS nama_dosen
+                FROM mahasiswa
+                LEFT JOIN dosen
+                ON mahasiswa.dosen_id = dosen.id
+                ORDER BY mahasiswa.nama ASC";
+
+        $stmt = $this->pdo->query($sql);
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function getByNim($nim)
     {
+        $stmt = $this->pdo->prepare(
+            "SELECT mahasiswa.*, dosen.nama AS nama_dosen
+             FROM mahasiswa
+             LEFT JOIN dosen
+             ON mahasiswa.dosen_id = dosen.id
+             WHERE mahasiswa.nim = :nim"
+        );
 
-        $mahasiswa = $this->getAll();
+        $stmt->execute([
+            'nim' => $nim
+        ]);
 
-        foreach ($mahasiswa as $mhs) {
-            if ($mhs['nim'] === $nim) {
-                return $mhs;
-            }
-        }
-
-        return null;
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 }

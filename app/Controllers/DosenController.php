@@ -6,36 +6,78 @@ class DosenController
 {
     public function index()
     {
-        $model = new Dosen();
+        global $pdo;
 
+        $model = new Dosen($pdo);
         $dosen = $model->getAll();
 
         require_once __DIR__ . '/../Views/dosen/index.php';
     }
 
-    public function detail()
-    {
-        $model = new Dosen();
-
-        $nidn = $_GET['nidn'] ?? null;
-
-        if (!$nidn) {
-            echo "NIDN tidak ditemukan.";
-            exit;
-        }
-
-        $dosen = $model->getByNidn($nidn);
-
-        if (!$dosen) {
-            echo "Data dosen tidak ditemukan.";
-            exit;
-        }
-
-        require_once __DIR__ . '/../Views/dosen/detail.php';
-    }
-
     public function create()
     {
-        echo "Form Tambah Dosen";
+        require_once __DIR__ . '/../Views/dosen/create.php';
+    }
+
+    public function store()
+    {
+        global $pdo;
+
+        $model = new Dosen($pdo);
+
+        $data = [
+            'nidn' => $_POST['nidn'],
+            'nama' => $_POST['nama'],
+            'bidang_keahlian' => $_POST['bidang_keahlian']
+        ];
+
+        $model->create($data);
+
+        header('Location: /si-akademik/public/dosen');
+        exit;
+    }
+
+    public function edit()
+    {
+        global $pdo;
+
+        $id = $_GET['id'];
+
+        $model = new Dosen($pdo);
+        $dosen = $model->getById($id);
+
+        require_once __DIR__ . '/../Views/dosen/edit.php';
+    }
+
+    public function update()
+    {
+        global $pdo;
+
+        $id = $_POST['id'];
+
+        $data = [
+            'nidn' => $_POST['nidn'],
+            'nama' => $_POST['nama'],
+            'bidang_keahlian' => $_POST['bidang_keahlian']
+        ];
+
+        $model = new Dosen($pdo);
+        $model->update($id, $data);
+
+        header('Location: /si-akademik/public/dosen');
+        exit;
+    }
+
+    public function delete()
+    {
+        global $pdo;
+
+        $id = $_GET['id'];
+
+        $model = new Dosen($pdo);
+        $model->delete($id);
+
+        header('Location: /si-akademik/public/dosen');
+        exit;
     }
 }

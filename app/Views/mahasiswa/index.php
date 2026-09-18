@@ -33,41 +33,47 @@
                             <th>NIM</th>
                             <th>Nama</th>
                             <th>Program Studi</th>
+                            <th>Dosen Pembimbing</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
 
                     <tbody>
 
-                        <?php foreach ($mahasiswa as $mhs): ?>
+                    <?php foreach ($mahasiswa as $mhs): ?>
 
-                            <tr>
+                        <tr>
 
-                                <td>
-                                    <?= htmlspecialchars($mhs['nim']); ?>
-                                </td>
+                            <td>
+                                <?= htmlspecialchars($mhs['nim']); ?>
+                            </td>
 
-                                <td>
-                                    <?= htmlspecialchars($mhs['nama']); ?>
-                                </td>
+                            <td>
+                                <?= htmlspecialchars($mhs['nama']); ?>
+                            </td>
 
-                                <td>
-                                    <?= htmlspecialchars($mhs['prodi']); ?>
-                                </td>
+                            <td>
+                                <?= htmlspecialchars($mhs['prodi']); ?>
+                            </td>
 
-                                <td>
-                                    <a
-                                        href="/si-akademik/public/mahasiswa/detail?nim=<?= urlencode($mhs['nim']); ?>"
-                                        class="btn btn-primary btn-sm">
-                                        Detail
-                                    </a>
-                                </td>
+                            <td>
+                                <?= htmlspecialchars($mhs['nama_dosen'] ?? 'Belum ada dosen pembimbing'); ?>
+                            </td>
 
-                            </tr>
+                            <td>
+                                <a
+                                    href="/si-akademik/public/mahasiswa/detail?nim=<?= urlencode($mhs['nim']); ?>"
+                                    class="btn btn-primary btn-sm">
+                                    Detail
+                                </a>
+                            </td>
 
-                        <?php endforeach; ?>
+                        </tr>
 
-                    </tbody>
+                    <?php endforeach; ?>
+
+                </tbody>
+
 
                 </table>
 
