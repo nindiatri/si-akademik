@@ -27,7 +27,7 @@
                     Tambah Data Dosen
                 </h2>
 
-                <form action="/si-akademik/public/dosen/store" method="POST">
+                <form action="/si-akademik-1/public/dosen/store" method="POST">
 
                     <div class="mb-3">
                         <label for="nidn" class="form-label">
